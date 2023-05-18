@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Love</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <p class="menu__paragrafo">Histórico</p>
+            <ul>
+                {% for item in historico %}
+                <li><p>{{ item }}</p></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="/postar" method="post" class="formulario">
+            <label class="formulario__label" for ="nomesobrenome">Pessoa 1</label>
+            <input class="formulario__input" type="text" name="p1" id="nomesobrenome" required>
+
+            <label class="formulario__label" for ="nomesobrenome">Pessoa 2</label>
+            <input class="formulario__input" type="text" name="p2" id="nomesobrenome" required>
+
+            <input class="formulario__enviar" type="submit" value="Enviar">   
+            <div class="resultado">
+                <p>{{ porcento }}</p>
+                <p>{{ frase }}</p>
+            </div>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+</html>
